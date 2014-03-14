@@ -1,0 +1,28 @@
+{
+  "name": "aggredash",
+  "version": "0.0.0",
+  "description": "Fetches contribution numbers and aggregates them for use in a dashboard",
+  "main": "web.js",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamlofting/aggredash.git"
+  },
+  "keywords": [
+    "dashboard"
+  ],
+  "author": "Adam Lofting",
+  "license": "MPL2",
+  "bugs": {
+    "url": "https://github.com/adamlofting/aggredash/issues"
+  },
+  "homepage": "https://github.com/adamlofting/aggredash",
+  "dependencies": {
+    "express": "~3.4.8"
+  }
+}

@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/adamlofting/aggredash",
   "dependencies": {
-    "express": "~3.4.8"
+    "express": "~3.4.8",
+    "async": "~0.2.10",
+    "request": "~2.34.0",
+    "mysql": "~2.1.1"
   }
 }

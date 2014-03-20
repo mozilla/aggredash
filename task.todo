@@ -1,0 +1,19 @@
+
+
+MVP:
+
+Extras to do:
+ ☐ readme
+ ☐ script to generate db in repo
+ ☐ thing about implications of showing 'future stats'
+   ☐ in particular, this can show what drop off would look like if we didn't get any new contributions... which is interesting
+   ☐ could be a query option on the exposed API e.g. showFutures=true
+ ☐ optimize on frequency of queries based on age of data
+   ☐ older dates checked infrequently (say once per day)
+ ☐ add a reset option
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ store a count for 'now' @done (14-03-20 14:19)
+ ✔ export bucket totals @done (14-03-20 14:19)
+ ✔ API to get data out @done (14-03-20 11:27)

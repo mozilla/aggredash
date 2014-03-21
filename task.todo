@@ -1,16 +1,16 @@
 
 
 MVP:
- ☐ Cron job to regularly update the numbers
 
 Extras to do:
- ☐ readme
  ☐ optimize on frequency of queries based on age of data
    ☐ older dates checked infrequently (say once per day)
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ readme @done (14-03-21 15:12) @project(Extras to do)
  ✔ add a reset option @done (14-03-21 15:05) @project(Extras to do)
+ ✔ Cron job to regularly update the numbers @done (14-03-21 15:05) @project(MVP)
  ✔ script to generate db in repo @done (14-03-21 14:45) @project(Extras to do)
  ✔ could be a query option on the exposed API e.g. showFutures=true @done (14-03-21 14:43) @project(Extras to do)
  ✔ thing about implications of showing 'future stats' @done (14-03-21 14:42) @project(Extras to do)

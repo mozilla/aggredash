@@ -1,13 +1,21 @@
 // web.js
 var express 		= require("express");
-var app 				= express();
+var cronJob     = require("cron").CronJob;;
 var dates       = require("./dates");
 var data        = require("./data");
+var fetch       = require("./fetch");
+var app         = express();
+
+
+new cronJob('0 */2 * * * *', function() {
+    fetch.updateAllNumbers(function numbersFetched () {
+      console.log("Numbers fetched");
+    });
+}, null, true);
 
 app.get('/', function(req, res) {
   res.send("You're probably looking for /api or for more info about this app see https://github.com/adamlofting/aggredash");
 });
-
 
 app.get('/api', function(req, res) {
   res.send("You're probably looking for /api/mofo/2014");

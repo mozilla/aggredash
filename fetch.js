@@ -7,8 +7,12 @@ var data        = require("./data");
 // Get our JSON config file
 var teams = toTrack.data_sources['teams'];
 
+module.exports = {
+  updateAllNumbers: updateAllNumbers
+}
+
 // Iterate through all the items in the config and fetch the latest numbers
-function updateAllNumbers (teams, callback) {
+function updateAllNumbers (callback) {
   async.each(teams, updateForTeam, function updatedAllNumbers (err) {
     if (err) console.log(err);
     callback(null);
@@ -96,8 +100,3 @@ function updateNumbersForSrc (team, bucket, description, src, callback) {
     });
   }
 }
-
-updateAllNumbers(teams, function fetched (err, res) {
-  console.log('All numbers updated');
-  process.exit(0);
-})

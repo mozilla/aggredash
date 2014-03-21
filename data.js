@@ -84,7 +84,7 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
                                 console.log(err);
                                 callback(null);
                               }
-                              latest.total = result;
+                              latest.total = result[0]; // only looking a single result
                               callback(null)
                             });
           }

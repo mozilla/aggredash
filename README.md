@@ -19,8 +19,8 @@ See script in sql/scripts.sql
 
 ## Environment Config
 
-For local dev, copy sample.env to .env and add credentials
-Set equivilent environment variables on Heroku
+* For local dev, copy sample.env to .env and add credentials
+* Set equivilent environment variables on Heroku
 
 ## Tracking Config
 ```

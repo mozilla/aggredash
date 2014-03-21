@@ -87,11 +87,15 @@ function updateNumbersForSrc (team, bucket, description, src, callback) {
 
     request(options, function savedNumbers (err, repsonse, body) {
       if (err) console.log(err);
-      var info = JSON.parse(body);
       var total_active = 0;
       var new_active = 0;
-      if (info.total_active_contributors) total_active = info.total_active_contributors;
-      if (info.new_contributors_7_days) new_active = info.new_contributors_7_days;
+      if (body) {
+        var info = JSON.parse(body);
+        if (info.total_active_contributors) total_active = info.total_active_contributors;
+        if (info.new_contributors_7_days) new_active = info.new_contributors_7_days;
+      } else {
+        console.error("Error on:", options.url);
+      }
 
       data.saveItem(team, bucket, date, description, total_active, new_active, table_name, function saved (err) {
         if (err) console.log(err);

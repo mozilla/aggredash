@@ -19,6 +19,45 @@ var pool = mysql.createPool(connectionOptions);
 
 
 
+
+/*
+* RESET THE DATABASE
+* Allows the DB to be rebuilt from scratch
+*/
+exports.resetDatabaseYesIreallyWantToDoThis = function resetDatabaseYesIreallyWantToDoThis(callback) {
+
+  pool.getConnection(function connectionAttempted (err, connection) {
+    if (err) {
+      console.log(err)
+    } else {
+      async.parallel ([
+          function truncateCounts (callback) {
+            connection.query('TRUNCATE counts;',
+                            function queryComplete (err, result) {
+                              if (err) console.log(err);
+                              callback(null)
+                            });
+          },
+          function truncateCountsLatest (callback) {
+            connection.query('TRUNCATE counts_latest;',
+                            function queryComplete (err, result) {
+                              if (err) console.log(err);
+                              callback(null)
+                            });
+          }
+      ],
+      // parallel callback
+      function (err, results) {
+        if (err) console.log(err);
+        connection.release();
+        callback(null);
+      });
+    }
+  });
+}
+
+
+
 /*
 * QUERY
 */
@@ -32,7 +71,7 @@ exports.getAggregateNumbers = function getAggregateNumbers (callback) {
     }
     else {
       connection.query('SELECT DATE_FORMAT(date, "%Y-%m-%d") as wkcommencing, sum(total_active) as totalactive, sum(new) as new ' +
-                        'FROM aggredash.counts ' +
+                        'FROM counts ' +
                         'GROUP BY date ' +
                         'ORDER BY date;',
                         function queryComplete (err, result) {
@@ -63,7 +102,7 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
           function getBuckets (callback) {
             connection.query('SELECT bucket, DATE_FORMAT(date, "%Y-%m-%d") as last_updated, ' +
                             'sum(total_active) as total_active, sum(new) as new ' +
-                            'FROM aggredash.counts_latest ' +
+                            'FROM counts_latest ' +
                             'GROUP BY bucket ' +
                             'ORDER BY bucket;',
                             function queryComplete (err, result) {
@@ -78,7 +117,7 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
           function getTotal (callback) {
             connection.query('SELECT DATE_FORMAT(date, "%Y-%m-%d") as last_updated, ' +
                             'sum(total_active) as total_active, sum(new) as new ' +
-                            'FROM aggredash.counts_latest;',
+                            'FROM counts_latest;',
                             function queryComplete (err, result) {
                               if (err) {
                                 console.log(err);

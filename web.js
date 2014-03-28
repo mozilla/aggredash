@@ -7,7 +7,7 @@ var fetch       = require("./fetch");
 var app         = express();
 
 
-new cronJob('0 */10 * * * *', function() {
+new cronJob('0 */15 * * * *', function() {
     fetch.updateAllNumbers(function numbersFetched () {
       console.log("Numbers fetched");
     });

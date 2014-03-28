@@ -14,7 +14,12 @@ exports.data_sources = {
 								"src": "http://gitribution.herokuapp.com/api/?team=webmaker&date="
 							}
 						],
-				"content" : [],
+				"content" : [
+							{
+								"description": "transifex",
+								"src": "http://transibution.herokuapp.com/api/?team=webmaker&date="
+							}
+						],
 				"events" : [],
 				"training" : [],
 				"community" : [],
@@ -31,7 +36,12 @@ exports.data_sources = {
 								"src": "http://gitribution.herokuapp.com/api/?team=appmaker&date="
 							}
 						],
-				"content" : [],
+				"content" : [
+							{
+								"description": "transifex",
+								"src": "http://transibution.herokuapp.com/api/?team=appmaker&date="
+							}
+						],
 				"events" : [],
 				"training" : [],
 				"community" : [],

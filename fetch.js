@@ -5,11 +5,11 @@ var dates       = require("./dates");
 var data        = require("./data");
 
 // Get our JSON config file
-var teams = toTrack.data_sources['teams'];
+var teams = toTrack.data_sources.teams;
 
 module.exports = {
   updateAllNumbers: updateAllNumbers
-}
+};
 
 // Iterate through all the items in the config and fetch the latest numbers
 function updateAllNumbers (callback) {
@@ -27,7 +27,7 @@ function updateForTeam (item, callback) {
   async.each(keys, checkBuckets, function checkedBuckets (err) {
     if (err) console.log(err);
     callback(null);
-  })
+  });
 
   function checkBuckets (item, callback) {
     var bucket = item;
@@ -36,7 +36,7 @@ function updateForTeam (item, callback) {
     async.each(srcs, checkSrc, function checkedSources (err) {
       if (err) console.log(err);
       callback(null);
-    })
+    });
 
     function checkSrc (item, callback) {
       updateNumbersForSrc (team, bucket, item.description, item.src, function updatedNumbers (err, res) {

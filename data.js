@@ -8,7 +8,7 @@ var connectionOptions = {
   password : process.env.DB_PASSWORD,
   database : process.env.DB_NAME,
   port     : process.env.DB_PORT
-}
+};
 
 if (process.env.DB_SSL) {
   // SSL is used for Amazon RDS, but not necessarily for local dev
@@ -28,21 +28,21 @@ exports.resetDatabaseYesIreallyWantToDoThis = function resetDatabaseYesIreallyWa
 
   pool.getConnection(function connectionAttempted (err, connection) {
     if (err) {
-      console.log(err)
+      console.log(err);
     } else {
       async.parallel ([
           function truncateCounts (callback) {
             connection.query('TRUNCATE counts;',
                             function queryComplete (err, result) {
                               if (err) console.log(err);
-                              callback(null)
+                              callback(null);
                             });
           },
           function truncateCountsLatest (callback) {
             connection.query('TRUNCATE counts_latest;',
                             function queryComplete (err, result) {
                               if (err) console.log(err);
-                              callback(null)
+                              callback(null);
                             });
           }
       ],
@@ -54,7 +54,7 @@ exports.resetDatabaseYesIreallyWantToDoThis = function resetDatabaseYesIreallyWa
       });
     }
   });
-}
+};
 
 
 
@@ -80,11 +80,11 @@ exports.getAggregateNumbers = function getAggregateNumbers (callback) {
                             callback(null, null);
                           }
                           connection.release();
-                          callback(null, result)
+                          callback(null, result);
                         });
     }
   });
-}
+};
 
 
 exports.getLatestNumbers = function getLatestNumbers (callback) {
@@ -111,7 +111,7 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
                                 callback(null);
                               }
                               latest.buckets = result;
-                              callback(null)
+                              callback(null);
                             });
           },
           function getTotal (callback) {
@@ -124,7 +124,7 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
                                 callback(null);
                               }
                               latest.total = result[0]; // only looking a single result
-                              callback(null)
+                              callback(null);
                             });
           }
       ],
@@ -136,7 +136,7 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
       });
     }
   });
-}
+};
 
 
 /*
@@ -159,7 +159,7 @@ exports.saveItem = function saveItem(team, bucket, date, description, total_acti
         description : description,
         total_active : total_active,
         new : new_active
-      }
+      };
 
       // Using REPLACE INTO to avoid worrying about duplicate entries
       // There is a unique key set across all team + bucket + date + description

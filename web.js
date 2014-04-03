@@ -1,6 +1,6 @@
 // web.js
 var express 		= require("express");
-var cronJob     = require("cron").CronJob;;
+var cronJob     = require("cron").CronJob;
 var dates       = require("./dates");
 var data        = require("./data");
 var fetch       = require("./fetch");
@@ -30,13 +30,13 @@ app.all('*', function(req, res, next) {
 app.get('/api/mofo/2014', function(req, res) {
   data.getAggregateNumbers(function gotCounts (err, result) {
     res.json(result);
-  })
+  });
 });
 
 app.get('/api/mofo/2014/latest', function(req, res) {
   data.getLatestNumbers(function gotLatestNumbers (err, result) {
     res.json(result);
-  })
+  });
 });
 
 var port = Number(process.env.PORT || 5000);

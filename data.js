@@ -15,7 +15,7 @@ if (process.env.DB_SSL) {
   connectionOptions.ssl = process.env.DB_SSL;
 }
 
-var pool = mysql.createPool(connectionOptions);
+// var pool = mysql.createPool(connectionOptions);
 
 
 
@@ -26,7 +26,8 @@ var pool = mysql.createPool(connectionOptions);
 */
 exports.resetDatabaseYesIreallyWantToDoThis = function resetDatabaseYesIreallyWantToDoThis(callback) {
 
-  pool.getConnection(function connectionAttempted (err, connection) {
+  var connection = mysql.createConnection(connectionOptions);
+  connection.connect(function connectionAttempted (err) {
     if (err) {
       console.log(err);
     } else {
@@ -49,7 +50,7 @@ exports.resetDatabaseYesIreallyWantToDoThis = function resetDatabaseYesIreallyWa
       // parallel callback
       function (err, results) {
         if (err) console.log(err);
-        connection.release();
+        connection.end();
         callback(null);
       });
     }
@@ -63,7 +64,8 @@ exports.resetDatabaseYesIreallyWantToDoThis = function resetDatabaseYesIreallyWa
 */
 exports.getAggregateNumbers = function getAggregateNumbers (callback) {
 
-  pool.getConnection(function connectionAttempted (err, connection) {
+  var connection = mysql.createConnection(connectionOptions);
+  connection.connect(function connectionAttempted (err) {
 
     if (err) {
       console.log(err);
@@ -79,7 +81,7 @@ exports.getAggregateNumbers = function getAggregateNumbers (callback) {
                             console.log(err);
                             callback(null, null);
                           }
-                          connection.release();
+                          connection.end();
                           callback(null, result);
                         });
     }
@@ -89,7 +91,8 @@ exports.getAggregateNumbers = function getAggregateNumbers (callback) {
 
 exports.getLatestNumbers = function getLatestNumbers (callback) {
 
-  pool.getConnection(function connectionAttempted (err, connection) {
+  var connection = mysql.createConnection(connectionOptions);
+  connection.connect(function connectionAttempted (err) {
 
     if (err) {
       console.log(err);
@@ -131,7 +134,7 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
       // parallel callback
       function (err, results) {
         if (err) console.log(err);
-        connection.release();
+        connection.end();
         callback(null, latest);
       });
     }
@@ -144,7 +147,8 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
 */
 exports.saveItem = function saveItem(team, bucket, date, description, total_active, new_active, table_name, callback) {
 
-  pool.getConnection(function(err, connection) {
+  var connection = mysql.createConnection(connectionOptions);
+  connection.connect(function connectionAttempted (err) {
 
     if (err) {
       console.error(err);
@@ -171,7 +175,7 @@ exports.saveItem = function saveItem(team, bucket, date, description, total_acti
           // console.log('saved activity');
           // console.log(activity);
         }
-        connection.release();
+        connection.end();
         callback(null);
       });
     }

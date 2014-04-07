@@ -13,7 +13,7 @@ module.exports = {
 
 // Iterate through all the items in the config and fetch the latest numbers
 function updateAllNumbers (callback) {
-  async.each(teams, updateForTeam, function updatedAllNumbers (err) {
+  async.eachLimit(teams, 2, updateForTeam, function updatedAllNumbers (err) {
     if (err) console.log(err);
     callback(null);
   });
@@ -24,7 +24,7 @@ function updateForTeam (item, callback) {
   var buckets = item.buckets;
   var keys = Object.keys(buckets);
 
-  async.each(keys, checkBuckets, function checkedBuckets (err) {
+  async.eachLimit(keys, 2, checkBuckets, function checkedBuckets (err) {
     if (err) console.log(err);
     callback(null);
   });
@@ -33,7 +33,7 @@ function updateForTeam (item, callback) {
     var bucket = item;
     var srcs = buckets[item];
 
-    async.each(srcs, checkSrc, function checkedSources (err) {
+    async.eachLimit(srcs, 2, checkSrc, function checkedSources (err) {
       if (err) console.log(err);
       callback(null);
     });
@@ -52,14 +52,12 @@ function updateNumbersForSrc (team, bucket, description, src, callback) {
   async.parallel([
 
     function updateIntervalsForYear (callback) {
-      async.each(dates.year2014,
+      async.eachSeries(dates.year2014,
         function (item, callback) {
-          setTimeout(function() {
-            getNumbersForDate(item, 'counts', function gotNumbersForDate (err, res) {
-              if (err) console.log(err);
-              callback(null);
-            });
-          }, getRandomInt(10,600000)); // distribute the requests across a few minutes to be polite
+          getNumbersForDate(item, 'counts', function gotNumbersForDate (err, res) {
+            if (err) console.log(err);
+            callback(null);
+          });
         },
         function gotNumbersForDates (err, res) {
           if (err) console.log(err);

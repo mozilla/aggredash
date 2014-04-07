@@ -1,6 +1,5 @@
-// MVP!!
-
-exports.year2014 = [
+// MVP (this can become more intelligent one day)
+year2014 = [
 '2013-12-30',
 '2014-01-06',
 '2014-01-13',
@@ -55,3 +54,22 @@ exports.year2014 = [
 '2014-12-22',
 '2014-12-29'
 ];
+
+function recent() {
+  var now = new Date();
+  var r = [];
+  for (var i = year2014.length - 1; i >= 0; i--) {
+    // 86400000 milliseconds in a day
+    var compare = new Date(year2014[i]);
+    var diff = Math.floor((now - compare) / 86400000);
+    if ((diff >= -8) && (diff <= 8)) {
+      r.push(year2014[i]);
+    }
+  }
+  return r;
+}
+
+module.exports = {
+  year2014: year2014,
+  recent: recent
+};

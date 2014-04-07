@@ -8,18 +8,37 @@ var data        = require("./data");
 var teams = toTrack.data_sources.teams;
 
 module.exports = {
-  updateAllNumbers: updateAllNumbers
+  updateAllNumbers: updateAllNumbers,
+  updateRecentNumbers: updateRecentNumbers
 };
 
 // Iterate through all the items in the config and fetch the latest numbers
 function updateAllNumbers (callback) {
-  async.eachLimit(teams, 2, updateForTeam, function updatedAllNumbers (err) {
-    if (err) console.log(err);
-    callback(null);
+  async.eachLimit(teams, 2,
+    function (item, callback) {
+      var datesAll = dates.year2014;
+      updateForTeam(item, datesAll, callback);
+    },
+    function updatedAllNumbers (err) {
+      if (err) console.log(err);
+      callback(null);
   });
 }
 
-function updateForTeam (item, callback) {
+// Iterate through all the items in the config and fetch the latest numbers
+function updateRecentNumbers (callback) {
+  async.eachLimit(teams, 2,
+    function (item, callback) {
+      var datesRecent = dates.recent();
+      updateForTeam(item, datesRecent, callback);
+    },
+    function updatedAllNumbers (err) {
+      if (err) console.log(err);
+      callback(null);
+  });
+}
+
+function updateForTeam (item, datesToCheck, callback) {
   var team = item.name;
   var buckets = item.buckets;
   var keys = Object.keys(buckets);
@@ -39,7 +58,7 @@ function updateForTeam (item, callback) {
     });
 
     function checkSrc (item, callback) {
-      updateNumbersForSrc (team, bucket, item.description, item.src, function updatedNumbers (err, res) {
+      updateNumbersForSrc (team, bucket, item.description, item.src, datesToCheck, function updatedNumbers (err, res) {
         if (err) console.log(err);
         console.log('Updated numbers for:', team, bucket, item.description);
         callback(null);
@@ -48,11 +67,11 @@ function updateForTeam (item, callback) {
   }
 }
 
-function updateNumbersForSrc (team, bucket, description, src, callback) {
+function updateNumbersForSrc (team, bucket, description, src, datesToCheck, callback) {
   async.parallel([
 
     function updateIntervalsForYear (callback) {
-      async.eachSeries(dates.year2014,
+      async.eachSeries(datesToCheck,
         function (item, callback) {
           getNumbersForDate(item, 'counts', function gotNumbersForDate (err, res) {
             if (err) console.log(err);

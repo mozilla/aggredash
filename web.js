@@ -7,10 +7,18 @@ var fetch       = require("./fetch");
 var app         = express();
 
 
-new cronJob('0 */15 * * * *', function() {
-    fetch.updateAllNumbers(function numbersFetched () {
-      console.log("Numbers fetched");
-    });
+new cronJob('0 */10 * * * *', function() {
+  // Every 10 minutes
+  fetch.updateRecentNumbers(function numbersFetched () {
+    console.log("RECENT Numbers fetched");
+  });
+}, null, true);
+
+new cronJob('0 0 */3 * * *', function() {
+  // Every 2 hours
+  fetch.updateAllNumbers(function numbersFetched () {
+    console.log("ALL Numbers fetched");
+  });
 }, null, true);
 
 app.get('/', function(req, res) {

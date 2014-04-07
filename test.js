@@ -1,4 +1,4 @@
-var fetch       = require("./fetch");
-fetch.updateAllNumbers(function numbersFetched () {
+var fetch = require("./fetch");
+fetch.updateRecentNumbers(function numbersFetched () {
   console.log("Numbers fetched");
 });

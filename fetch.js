@@ -94,8 +94,8 @@ function updateNumbersForSrc (team, bucket, description, src, callback) {
       if (body) {
         try {
           var info = JSON.parse(body);
-          if (info.total_active_contributors) total_active = info.total_active_contributors;
-          if (info.new_contributors_7_days) new_active = info.new_contributors_7_days;
+          if (info.total_active_contributors) { total_active = info.total_active_contributors; }
+          if (info.new_contributors_7_days) { new_active = info.new_contributors_7_days; }
 
           data.saveItem(team, bucket, date, description, total_active, new_active, table_name, function saved (err) {
             if (err) console.log(err);

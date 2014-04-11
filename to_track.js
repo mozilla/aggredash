@@ -29,6 +29,10 @@ exports.data_sources = {
                 "description": "adhoc",
                 "src": "https://adhoctribution.herokuapp.com/api?team=webmaker&bucket=events&date="
               }
+              // ,{
+              //   "description": "webmaker.org",
+              //   "src": "http://park-warden-production.herokuapp.com/?date="
+              // }
             ],
         "training" : [
               {
@@ -246,6 +250,23 @@ exports.data_sources = {
                 "src": "https://adhoctribution.herokuapp.com/api?team=sciencelab&bucket=apis&date="
               }
             ],
+      }
+    },
+    {
+      "name" : "mofo",
+      "buckets" : {
+        "code" : [],
+        "content" : [],
+        "events" : [
+              {
+                "description": "mozfest",
+                "src": "http://mozfaced.herokuapp.com/?date="
+              }
+            ],
+        "training" : [],
+        "community" : [],
+        "testing" : [],
+        "apis" : [],
       }
     }
   ]

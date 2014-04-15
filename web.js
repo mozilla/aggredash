@@ -20,13 +20,25 @@ app.all('*', function(req, res, next) {
  });
 
 app.get('/api/mofo/2014', function(req, res) {
-  data.getAggregateNumbers(function gotCounts (err, result) {
+  data.getAggregateNumbers(null, function gotCounts (err, result) {
     res.json(result);
   });
 });
 
 app.get('/api/mofo/2014/latest', function(req, res) {
-  data.getLatestNumbers(function gotLatestNumbers (err, result) {
+  data.getLatestNumbers(null, function gotLatestNumbers (err, result) {
+    res.json(result);
+  });
+});
+
+app.get('/api/:teamname/2014', function(req, res) {
+  data.getAggregateNumbers(req.params.teamname, function gotCounts (err, result) {
+    res.json(result);
+  });
+});
+
+app.get('/api/:teamname/2014/latest', function(req, res) {
+  data.getLatestNumbers(req.params.teamname, function gotLatestNumbers (err, result) {
     res.json(result);
   });
 });

@@ -62,7 +62,7 @@ exports.resetDatabaseYesIreallyWantToDoThis = function resetDatabaseYesIreallyWa
 /*
 * QUERY
 */
-exports.getAggregateNumbers = function getAggregateNumbers (callback) {
+exports.getAggregateNumbers = function getAggregateNumbers (teamname, callback) {
 
   var connection = mysql.createConnection(connectionOptions);
   connection.connect(function connectionAttempted (err) {
@@ -72,24 +72,25 @@ exports.getAggregateNumbers = function getAggregateNumbers (callback) {
       callback(null, null);
     }
     else {
-      connection.query('SELECT DATE_FORMAT(date, "%Y-%m-%d") as wkcommencing, sum(total_active) as totalactive, sum(new) as new ' +
-                        'FROM counts ' +
-                        'GROUP BY date ' +
-                        'ORDER BY date;',
-                        function queryComplete (err, result) {
-                          if (err) {
-                            console.log(err);
-                            callback(null, null);
-                          }
-                          connection.end();
-                          callback(null, result);
-                        });
+      var query = 'SELECT DATE_FORMAT(date, "%Y-%m-%d") as wkcommencing, sum(total_active) as totalactive, sum(new) as new FROM counts';
+      if (teamname) {
+          query = query + ' WHERE team = ' + connection.escape(teamname);
+      }
+      query = query + ' GROUP BY date ORDER BY date';
+      connection.query(query, function queryComplete (err, result) {
+                        if (err) {
+                          console.log(err);
+                          callback(null, null);
+                        }
+                        connection.end();
+                        callback(null, result);
+                      });
     }
   });
 };
 
 
-exports.getLatestNumbers = function getLatestNumbers (callback) {
+exports.getLatestNumbers = function getLatestNumbers (teamname, callback) {
 
   var connection = mysql.createConnection(connectionOptions);
   connection.connect(function connectionAttempted (err) {
@@ -103,12 +104,14 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
 
       async.parallel ([
           function getBuckets (callback) {
-            connection.query('SELECT bucket, DATE_FORMAT(date, "%Y-%m-%d") as last_updated, ' +
-                            'sum(total_active) as total_active, sum(new) as new ' +
-                            'FROM counts_latest ' +
-                            'GROUP BY bucket ' +
-                            'ORDER BY bucket;',
-                            function queryComplete (err, result) {
+            var query = 'SELECT bucket, DATE_FORMAT(date, "%Y-%m-%d") as last_updated, ' +
+                        'sum(total_active) as total_active, sum(new) as new ' +
+                        'FROM counts_latest';
+            if (teamname) {
+                query = query + ' WHERE team = ' + connection.escape(teamname);
+            }
+            query = query + ' GROUP BY bucket ORDER BY bucket';
+            connection.query(query, function queryComplete (err, result) {
                               if (err) {
                                 console.log(err);
                                 callback(null);
@@ -118,10 +121,13 @@ exports.getLatestNumbers = function getLatestNumbers (callback) {
                             });
           },
           function getTotal (callback) {
-            connection.query('SELECT DATE_FORMAT(date, "%Y-%m-%d") as last_updated, ' +
-                            'sum(total_active) as total_active, sum(new) as new ' +
-                            'FROM counts_latest;',
-                            function queryComplete (err, result) {
+            var query = 'SELECT DATE_FORMAT(date, "%Y-%m-%d") as last_updated, ' +
+                        'sum(total_active) as total_active, sum(new) as new ' +
+                        'FROM counts_latest';
+            if (teamname) {
+                query = query + ' WHERE team = ' + connection.escape(teamname);
+            }
+            connection.query(query, function queryComplete (err, result) {
                               if (err) {
                                 console.log(err);
                                 callback(null);

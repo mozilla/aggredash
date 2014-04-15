@@ -9,7 +9,8 @@ var teams = toTrack.data_sources.teams;
 
 module.exports = {
   updateAllNumbers: updateAllNumbers,
-  updateRecentNumbers: updateRecentNumbers
+  updateRecentNumbers: updateRecentNumbers,
+  updateNumbersForSrc: updateNumbersForSrc
 };
 
 // Iterate through all the items in the config and fetch the latest numbers
@@ -32,7 +33,7 @@ function updateRecentNumbers (callback) {
       var datesRecent = dates.recent();
       updateForTeam(item, datesRecent, callback);
     },
-    function updatedAllNumbers (err) {
+    function updatedRecentNumbers (err) {
       if (err) console.log(err);
       callback(null);
   });

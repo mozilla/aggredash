@@ -28,11 +28,11 @@ exports.data_sources = {
               {
                 "description": "adhoc",
                 "src": "https://adhoctribution.herokuapp.com/api?team=webmaker&bucket=events&date="
+              },
+              {
+                "description": "webmaker.org",
+                "src": "http://park-warden-production.herokuapp.com/?date="
               }
-              // ,{
-              //   "description": "webmaker.org",
-              //   "src": "http://park-warden-production.herokuapp.com/?date="
-              // }
             ],
         "training" : [
               {

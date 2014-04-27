@@ -206,6 +206,92 @@ exports.data_sources = {
       }
     },
     {
+      "name" : "engagement",
+      "buckets" : {
+        "code" : [
+            ],
+        "content" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=content&date="
+              }
+            ],
+        "events" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=events&date="
+              }
+            ],
+        "training" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=training&date="
+              }
+            ],
+        "community" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=community&date="
+              }
+            ],
+        "testing" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=testing&date="
+              }
+            ],
+        "apis" : [
+            {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=apis&date="
+              }
+            ],
+      }
+    },
+    {
+      "name" : "hive",
+      "buckets" : {
+        "code" : [
+            ],
+        "content" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=content&date="
+              }
+            ],
+        "events" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=events&date="
+              }
+            ],
+        "training" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=training&date="
+              }
+            ],
+        "community" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=community&date="
+              }
+            ],
+        "testing" : [
+              {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=testing&date="
+              }
+            ],
+        "apis" : [
+            {
+                "description": "adhoc",
+                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=apis&date="
+              }
+            ],
+      }
+    },
+    {
       "name" : "sciencelab",
       "buckets" : {
         "code" : [

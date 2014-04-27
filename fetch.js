@@ -59,7 +59,7 @@ function updateForTeam (item, datesToCheck, callback) {
     });
 
     function checkSrc (item, callback) {
-      updateNumbersForSrc (team, bucket, item.description, item.src, datesToCheck, function updatedNumbers (err, res) {
+      updateNumbersForSrc (team, bucket, item, datesToCheck, function updatedNumbers (err, res) {
         if (err) console.log(err);
         console.log('Updated numbers for:', team, bucket, item.description);
         callback(null);
@@ -68,7 +68,20 @@ function updateForTeam (item, datesToCheck, callback) {
   }
 }
 
-function updateNumbersForSrc (team, bucket, description, src, datesToCheck, callback) {
+function updateNumbersForSrc (team, bucket, item, datesToCheck, callback) {
+  var description = item.description;
+  var src = item.src;
+  // the 'standard field names'
+  var target_json_field_total_active = "total_active_contributors";
+  var target_json_field_new_active_7_days = "new_contributors_7_days";
+  // if a source is using a different field name, lookup this instead
+  if (item.active_field_name) {
+    target_json_field_total_active = item.active_field_name;
+  }
+  if (item.new_field_name) {
+    target_json_field_new_active_7_days = item.new_field_name;
+  }
+
   async.parallel([
 
     function updateIntervalsForYear (callback) {
@@ -114,8 +127,8 @@ function updateNumbersForSrc (team, bucket, description, src, datesToCheck, call
       if (body) {
         try {
           var info = JSON.parse(body);
-          if (info.total_active_contributors) { total_active = info.total_active_contributors; }
-          if (info.new_contributors_7_days) { new_active = info.new_contributors_7_days; }
+          if (info && info[target_json_field_total_active]) { total_active = info[target_json_field_total_active]; }
+          if (info && info[target_json_field_new_active_7_days]) { new_active = info[target_json_field_new_active_7_days]; }
 
           data.saveItem(team, bucket, date, description, total_active, new_active, table_name, function saved (err) {
             if (err) console.log(err);

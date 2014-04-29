@@ -31,7 +31,7 @@ exports.data_sources = {
               },
               {
                 "description": "webmaker.org",
-                "src": "http://park-warden-production.herokuapp.com/?bucket=events&date="
+                "src": "http://park-warden-production.herokuapp.com/api/contributions/events/"
               }
             ],
         "training" : [

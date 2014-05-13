@@ -21,13 +21,13 @@ exports.data_sources = {
               },
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=webmaker&bucket=content&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-webmaker&bucket=content&date="
               }
             ],
         "events" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=webmaker&bucket=events&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-webmaker&bucket=events&date="
               },
               {
                 "description": "webmaker.org",
@@ -37,25 +37,25 @@ exports.data_sources = {
         "training" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=webmaker&bucket=training&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-webmaker&bucket=training&date="
               }
             ],
         "community" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=webmaker&bucket=community&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-webmaker&bucket=community&date="
               }
             ],
         "testing" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=webmaker&bucket=testing&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-webmaker&bucket=testing&date="
               }
             ],
         "apis" : [
             {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=webmaker&bucket=apis&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-webmaker&bucket=apis&date="
               }
             ],
       }
@@ -76,37 +76,37 @@ exports.data_sources = {
               },
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=appmaker&bucket=content&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-appmaker&bucket=content&date="
               }
             ],
         "events" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=appmaker&bucket=events&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-appmaker&bucket=events&date="
               }
             ],
         "training" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=appmaker&bucket=training&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-appmaker&bucket=training&date="
               }
             ],
         "community" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=appmaker&bucket=community&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-appmaker&bucket=community&date="
               }
             ],
         "testing" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=appmaker&bucket=testing&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-appmaker&bucket=testing&date="
               }
             ],
         "apis" : [
             {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=appmaker&bucket=apis&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-appmaker&bucket=apis&date="
               }
             ],
       }
@@ -123,37 +123,37 @@ exports.data_sources = {
         "content" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=openbadges&bucket=content&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-openbadges&bucket=content&date="
               }
             ],
         "events" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=openbadges&bucket=events&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-openbadges&bucket=events&date="
               }
             ],
         "training" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=openbadges&bucket=training&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-openbadges&bucket=training&date="
               }
             ],
         "community" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=openbadges&bucket=community&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-openbadges&bucket=community&date="
               }
             ],
         "testing" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=openbadges&bucket=testing&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-openbadges&bucket=testing&date="
               }
             ],
         "apis" : [
             {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=openbadges&bucket=apis&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-openbadges&bucket=apis&date="
               }
             ],
       }
@@ -170,7 +170,7 @@ exports.data_sources = {
         "content" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=opennews&bucket=content&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-opennews&bucket=content&date="
               },
               // {
               //   "description": "source",
@@ -182,19 +182,19 @@ exports.data_sources = {
         "events" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=opennews&bucket=events&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-opennews&bucket=events&date="
               }
             ],
         "training" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=opennews&bucket=training&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-opennews&bucket=training&date="
               }
             ],
         "community" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=opennews&bucket=community&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-opennews&bucket=community&date="
               },
               // {
               //   "description": "source",
@@ -206,13 +206,13 @@ exports.data_sources = {
         "testing" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=opennews&bucket=testing&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-opennews&bucket=testing&date="
               }
             ],
         "apis" : [
             {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=opennews&bucket=apis&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-opennews&bucket=apis&date="
               }
             ],
       }
@@ -225,37 +225,37 @@ exports.data_sources = {
         "content" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=content&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-engagement&bucket=content&date="
               }
             ],
         "events" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=events&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-engagement&bucket=events&date="
               }
             ],
         "training" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=training&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-engagement&bucket=training&date="
               }
             ],
         "community" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=community&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-engagement&bucket=community&date="
               }
             ],
         "testing" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=testing&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-engagement&bucket=testing&date="
               }
             ],
         "apis" : [
             {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=engagement&bucket=apis&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-engagement&bucket=apis&date="
               }
             ],
       }
@@ -268,37 +268,37 @@ exports.data_sources = {
         "content" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=content&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-hive&bucket=content&date="
               }
             ],
         "events" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=events&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-hive&bucket=events&date="
               }
             ],
         "training" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=training&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-hive&bucket=training&date="
               }
             ],
         "community" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=community&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-hive&bucket=community&date="
               }
             ],
         "testing" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=testing&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-hive&bucket=testing&date="
               }
             ],
         "apis" : [
             {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=hive&bucket=apis&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-hive&bucket=apis&date="
               }
             ],
       }
@@ -315,37 +315,37 @@ exports.data_sources = {
         "content" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=sciencelab&bucket=content&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-sciencelab&bucket=content&date="
               }
             ],
         "events" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=sciencelab&bucket=events&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-sciencelab&bucket=events&date="
               }
             ],
         "training" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=sciencelab&bucket=training&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-sciencelab&bucket=training&date="
               }
             ],
         "community" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=sciencelab&bucket=community&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-sciencelab&bucket=community&date="
               }
             ],
         "testing" : [
               {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=sciencelab&bucket=testing&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-sciencelab&bucket=testing&date="
               }
             ],
         "apis" : [
             {
                 "description": "adhoc",
-                "src": "https://adhoctribution.herokuapp.com/api?team=sciencelab&bucket=apis&date="
+                "src": "https://adhoctribution.herokuapp.com/api?team=mofo-sciencelab&bucket=apis&date="
               }
             ],
       }

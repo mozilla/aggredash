@@ -172,12 +172,12 @@ exports.data_sources = {
                 "description": "adhoc",
                 "src": "https://adhoctribution.herokuapp.com/api?team=mofo-opennews&bucket=content&date="
               },
-              // {
-              //   "description": "source",
-              //   "src": "https://source.mofostaging.net/en-US/api/1.0/contributor-count/?date=",
-              //   "active_field_name": "authors_previous_year",
-              //   "new_field_name": "authors_new_previous_7_days"
-              // }
+              {
+                "description": "source",
+                "src": "https://source.opennews.org/en-US/api/1.0/contributor-count/?date=",
+                "active_field_name": "authors_previous_year",
+                "new_field_name": "authors_new_previous_7_days"
+              }
             ],
         "events" : [
               {

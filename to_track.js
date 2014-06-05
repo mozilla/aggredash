@@ -12,6 +12,10 @@ exports.data_sources = {
               {
                 "description": "github",
                 "src": "http://gitribution.herokuapp.com/api/?team=webmaker&date="
+              },
+              {
+                "description": "bugzilla",
+                "src": "http://webmaker-bugzilla-counter.herokuapp.com/?date="
               }
             ],
         "content" : [

@@ -26,6 +26,10 @@ exports.data_sources = {
               {
                 "description": "adhoc",
                 "src": "https://adhoctribution.herokuapp.com/api?team=mofo-webmaker&bucket=content&date="
+              },
+              {
+                "description": "webmaker.org",
+                "src": "http://park-warden-production.herokuapp.com/api/contributions/content/"
               }
             ],
         "events" : [

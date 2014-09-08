@@ -1,7 +1,9 @@
 // web.js
 var express 		= require("express");
+var async       = require("async");
 var dates       = require("./dates");
 var data        = require("./data");
+var gdoc        = require("./gdoc");
 var app         = express();
 
 
@@ -20,8 +22,25 @@ app.all('*', function(req, res, next) {
  });
 
 app.get('/api/mofo/2014', function(req, res) {
-  data.getAggregateNumbers(null, function gotCounts (err, result) {
-    res.json(result);
+
+  async.parallel({
+    db: function(callback){
+      data.getAggregateNumbers(null, function gotCounts (err, result) {
+        callback(null, result);
+      });
+    },
+    gdoc: function(callback){
+      gdoc.getProjections(function gotProjections (err, result) {
+        callback(null, result);
+      });
+    }
+  },
+  function(err, results) {
+    var output = results.db;
+    output.push({
+      projections: results.gdoc
+    });
+    res.json(output);
   });
 });
 

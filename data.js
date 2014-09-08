@@ -69,7 +69,7 @@ exports.getAggregateNumbers = function getAggregateNumbers (teamname, callback) 
 
     if (err) {
       console.log(err);
-      callback(null, null);
+      return callback(null, null);
     }
     else {
       var query = 'SELECT DATE_FORMAT(date, "%Y-%m-%d") as wkcommencing, sum(total_active) as totalactive, sum(new) as new FROM counts';
@@ -97,7 +97,7 @@ exports.getLatestNumbers = function getLatestNumbers (teamname, callback) {
 
     if (err) {
       console.log(err);
-      callback(null, null);
+      return callback(null, null);
     }
     else {
       var latest = {};

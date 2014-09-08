@@ -37,9 +37,7 @@ app.get('/api/mofo/2014', function(req, res) {
   },
   function(err, results) {
     var output = results.db;
-    output.push({
-      projections: results.gdoc
-    });
+    output = output.concat(results.gdoc);
     res.json(output);
   });
 });

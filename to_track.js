@@ -18,11 +18,13 @@ exports.data_sources = {
                 "src": "http://webmaker-bugzilla-counter.herokuapp.com/?date="
               }
             ],
-        "content" : [
+        "localization" : [
               {
                 "description": "transifex",
                 "src": "http://transibution.herokuapp.com/api/?team=webmaker&date="
-              },
+              }
+            ],
+        "content" : [
               {
                 "description": "adhoc",
                 "src": "https://adhoctribution.herokuapp.com/api?team=mofo-webmaker&bucket=content&date="
@@ -77,11 +79,13 @@ exports.data_sources = {
                 "src": "http://gitribution.herokuapp.com/api/?team=appmaker&date="
               }
             ],
-        "content" : [
+        "localization" : [
               {
                 "description": "transifex",
                 "src": "http://transibution.herokuapp.com/api/?team=appmaker&date="
-              },
+              }
+            ],
+        "content" : [
               {
                 "description": "adhoc",
                 "src": "https://adhoctribution.herokuapp.com/api?team=mofo-appmaker&bucket=content&date="

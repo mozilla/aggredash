@@ -25,7 +25,22 @@ function toInt(s) {
  * CSV
  */
 function processCSV(fetchedCSV, callback) {
-  var output = [];
+  var output = {};
+  output.webmaker = [];
+  output.appmaker = [];
+  output.opennews = [];
+  output.sciencelab = [];
+  output.hive = [];
+  output.all = [];
+
+  function addTo (teamName, row) {
+    if (row.month) {
+      output[teamName].push({
+        month: row.month,
+        planned: row[teamName]
+      });
+    }
+  }
 
   csv()
     .from.string(fetchedCSV, {
@@ -34,14 +49,26 @@ function processCSV(fetchedCSV, callback) {
       escape: '"',
     })
     .to.stream(process.stdout, {
-      columns: ['month', 'projection']
+      columns: ['month', 'projection', 'webmaker', 'appmaker', 'opennews', 'sciencelab', 'hive', 'all']
     })
     .transform(function (row) {
-      if (row.month && row.projection) {
-        output.push({
-          month: row.month,
-          projection: row.projection
-        });
+      if(row.webmaker) {
+        addTo('webmaker', row);
+      }
+      if(row.appmaker) {
+        addTo('appmaker', row);
+      }
+      if(row.opennews) {
+        addTo('opennews', row);
+      }
+      if(row.sciencelab) {
+        addTo('sciencelab', row);
+      }
+      if(row.hive) {
+        addTo('hive', row);
+      }
+      if(row.all) {
+        addTo('all', row);
       }
     })
     .on('end', function (count) {
@@ -113,7 +140,22 @@ function getProjections (callback) {
   }
 }
 
+function getViewProjections (view, callback) {
+  var validTeams = ['all', 'webmaker', 'appmaker', 'hive', 'opennews', 'sciencelab'];
+  if (validTeams.indexOf(view) === -1) {
+    return callback(null, []);
+  }
+
+  getProjections(function got (err, res) {
+    if (!res[view]) {
+      return callback(null);
+    }
+    callback(null, res[view]);
+  });
+}
+
 module.exports = {
   getProjections: getProjections,
+  getViewProjections: getViewProjections
 };
 
